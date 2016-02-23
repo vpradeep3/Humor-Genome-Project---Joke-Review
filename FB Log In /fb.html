@@ -1,0 +1,49 @@
+<html>
+    <head>
+      <title>My Facebook Login Page</title>
+    <link href="fbstyle.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({appId: "hidden", 
+            channelUrl : "Channel File",
+            status: true, 
+            cookie: true, 
+            xfbml: true, 
+            oauth:true});
+          });
+        };
+
+
+        // Load the SDK Asynchronously
+       (function() {
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+
+
+       FB.login(function(response) 
+{
+    if (response.authResponse) 
+    {
+        //login success
+    } 
+    else 
+    {
+        alert('User cancelled login or did not fully authorize.');
+    }
+
+}, {scope: 'permissions that app needs'})
+      </script>
+
+      <div class="fb-login-button">Login with Facebook</div>
+
+    </body>
+ </html>
